@@ -23,9 +23,16 @@
 /***************************** Include files *******************************/
 
 /*****************************    Defines    *******************************/
+#define SYSTICK_RELOAD_VALUE 80000              // 5 mS
+
+// Missing definitions in tm4c123gh6pm.h file
+#define NVIC_INT_CTRL_PEND_SYST   0x04000000    // Pend a systick int
+#define NVIC_INT_CTRL_UNPEND_SYST 0x02000000    // Unpend a systick int
+
+#define SYSTICK_PRIORITY    0x7E
 
 /*****************************   Constants   *******************************/
-
+volatile INT16S ticks = 0;
 /*****************************   Functions   *******************************/
 void enable_global_int();
 /*****************************************************************************
