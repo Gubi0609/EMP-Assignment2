@@ -39,26 +39,17 @@ int main(void)
 	init_systick();
 	init_portF();
 
-	// Loop forever.
-	while(1)
-	{
-		// System part of the super loop.
-		// ------------------------------
-		while( !ticks );
+  // Loop forever.
+  while(1)
+  {
+	while( !ticks );
 
-		// The following will be executed every 5ms
-		ticks--;
+	// The following will be executed every 5ms
+    ticks--;
 
-		if( ! --alive_timer )
-		{
-			alive_timer = TIM_500_MSEC;
-		}
-
-		// Application part of the super loop.
-		// -----------------------------------
-		event = select_button();
-		HandleState(GetState(event));
-	}
+	event = select_button();
+	HandleState(GetState(event));
+  }
 	return 0;
 }
 
