@@ -32,9 +32,11 @@
 #define EMERGENCY_STATE 5
 
 /*****************************   Constants   *******************************/
-INT16U counter_timer = TIM_2_SEC;
+extern INT16U counter_timer;
 
 /*****************************   Functions   *******************************/
+void HandleState(INT8U state);
+INT8U GetState(INT8U button_event);
 
 /****************************** End Of Module *******************************/
 

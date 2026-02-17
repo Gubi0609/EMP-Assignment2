@@ -3,6 +3,12 @@
 #include "button.h"
 #include "light.h"
 
+INT16U counter_timer = TIM_2_SEC;
+
+void ClearColor(){
+    GPIO_PORTF_DATA_R &= 0xF1; // 1111 0001
+}
+
 void SetColor(INT16U Color){
     ClearColor();
     GPIO_PORTF_DATA_R |= Color;
@@ -10,10 +16,6 @@ void SetColor(INT16U Color){
 
 void ToggleColor(INT16U Color){
     GPIO_PORTF_DATA_R ^= Color;
-}
-
-void ClearColor(){
-    GPIO_PORTF_DATA_R &= 0xF1; // 1111 0001
 }
 
 void HandleState(INT8U state){
