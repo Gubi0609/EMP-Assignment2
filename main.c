@@ -39,17 +39,17 @@ int main(void)
 	init_systick();
 	init_portF();
 
-  // Loop forever.
-  while(1)
-  {
-	while( !ticks );
+	// Loop forever.
+	while(1)
+	{
+		while( !ticks );
 
-	// The following will be executed every 5ms
-    ticks--;
+		// The following will be executed every 5ms
+		ticks--;
 
-	event = select_button();
-	HandleState(GetState(event));
-  }
+		event = select_button();
+		HandleState(GetState(event));
+	}
 	return 0;
 }
 
