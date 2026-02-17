@@ -1,25 +1,68 @@
+/*****************************************************************************
+* University of Southern Denmark
+* Embedded C Programming (ECP)
+*
+* MODULENAME.: light.c
+*
+* PROJECT....: Traffic Light
+*
+* DESCRIPTION: See module specification file (.h-file).
+*****************************************************************************/
+
+/***************************** Include files *******************************/
 #include "tm4c123gh6pm.h"
 #include "standardTypes.h"
 #include "button.h"
 #include "light.h"
 
+/*****************************    Defines    *******************************/
+
+/*****************************   Constants   *******************************/
+
+/*****************************   Variables   *******************************/
 INT16U counter_timer = TIM_2_SEC;
 static INT8U current_state = RED_STATE;
 
-void ClearColor(){
+/*****************************   Functions   *******************************/
+
+void ClearColor()
+/*****************************************************************************
+*   Input    : -
+*   Output   : -
+*   Function : Clear the color LEDs on Port F (PF1-PF3)
+******************************************************************************/
+{
     GPIO_PORTF_DATA_R &= 0xF1; // 1111 0001
 }
 
-void SetColor(INT16U Color){
+void SetColor(INT16U Color)
+/*****************************************************************************
+*   Input    : Color - Color code to set on the LEDs
+*   Output   : -
+*   Function : Set the specified color on the LEDs
+******************************************************************************/
+{
     ClearColor();
     GPIO_PORTF_DATA_R |= Color;
 }
 
-void ToggleColor(INT16U Color){
+void ToggleColor(INT16U Color)
+/*****************************************************************************
+*   Input    : Color - Color code to toggle on the LEDs
+*   Output   : -
+*   Function : Toggle the specified color on the LEDs
+******************************************************************************/
+{
     GPIO_PORTF_DATA_R ^= Color;
 }
 
-void HandleState(INT8U state){
+void HandleState(INT8U state)
+/*****************************************************************************
+*   Input    : state - Current traffic light state
+*   Output   : -
+*   Function : Handle the current state and manage state transitions
+******************************************************************************/
+{
     switch(state){
         case RED_STATE:
             SetColor(RED);
@@ -63,7 +106,13 @@ void HandleState(INT8U state){
 
 }
 
-INT8U GetState(INT8U button_event){
+INT8U GetState(INT8U button_event)
+/*****************************************************************************
+*   Input    : button_event - Button event from select_button()
+*   Output   : Current state
+*   Function : Process button events and return the current traffic light state
+******************************************************************************/
+{
     //read state from button and figure out what to do
     switch (button_event)
     {
@@ -87,3 +136,5 @@ INT8U GetState(INT8U button_event){
     }
     return current_state;
 }
+
+/****************************** End Of Module *******************************/

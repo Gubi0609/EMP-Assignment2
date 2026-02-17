@@ -23,15 +23,20 @@
 
 /*****************************   Functions   *******************************/
 INT8U button_pushed()
+/*****************************************************************************
+*   Input    : -
+*   Output   : TRUE if button is pushed, FALSE otherwise
+*   Function : Check if the button (SW1 on PF4) is pushed
+******************************************************************************/
 {
   return( !(GPIO_PORTF_DATA_R & 0x10) );  // SW at PF4
 }
 
 INT8U select_button(void)
 /*****************************************************************************
-*   Input    :
-*   Output   :
-*   Function :
+*   Input    : -
+*   Output   : Button event (IDLE, SINGLE_PRESS, DOUBLE_PRESS, or LONG_PRESS)
+*   Function : Detect and classify button press events using state machine
 ******************************************************************************/
 {
   static INT8U  button_state = IDLE;

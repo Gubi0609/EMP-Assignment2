@@ -21,12 +21,13 @@
 
 /*****************************   Functions   *******************************/
 
-void init_portF(void) {
+void init_portF(void)
 /*****************************************************************************
-*   Input    :
-*   Output   :
+*   Input    : -
+*   Output   : -
 *   Function : Initialize needed port F pins (PF1 - PF4)
 ******************************************************************************/
+{
     int dummy; // Dummy to do a few cycles
 
     // Enable GPIO port F (used for RBG and switch) by turning on power to the port
@@ -45,12 +46,13 @@ void init_portF(void) {
     GPIO_PORTF_DEN_R = ENABLE_DEN;
 }
 
-void init_portFInterrupt(void) {
+void init_portFInterrupt(void)
 /*****************************************************************************
-*   Input    :
-*   Output   :
+*   Input    : -
+*   Output   : -
 *   Function : Initialize port F as interrupt - UNUSED
 ******************************************************************************/
+{
 
     // Set switch (PF4) as edge-sensitive
     GPIO_PORTF_IS_R = ENABLE_EDGE_SENSITIVE;

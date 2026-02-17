@@ -1,14 +1,35 @@
+/*****************************************************************************
+* University of Southern Denmark
+* Embedded Programming (EMP)
+*
+* MODULENAME.: systick.c
+*
+* PROJECT....: Traffic Light
+*
+* DESCRIPTION: See module specification file (.h-file).
+*****************************************************************************/
+
+/***************************** Include files *******************************/
 #include <stdint.h>
 #include "tm4c123gh6pm.h"
 #include "standardTypes.h"
 #include "systick.h"
 
+/*****************************    Defines    *******************************/
+
+/*****************************   Constants   *******************************/
+
+/*****************************   Variables   *******************************/
 volatile INT16S ticks = 0;
+
+/*****************************   Functions   *******************************/
 
 void systick_handler(void)
 /*****************************************************************************
-*   Function : See module specification (.h-file).
-*****************************************************************************/
+*   Input    : -
+*   Output   : -
+*   Function : SysTick interrupt handler, increments tick counter
+******************************************************************************/
 {
   // Hardware clears systick int reguest
   ticks++;
@@ -29,8 +50,12 @@ void disable_global_int()
 */
 
 
-
 void init_systick()
+/*****************************************************************************
+*   Input    : -
+*   Output   : -
+*   Function : Initialize the systick interrupt
+******************************************************************************/
 {
 
   // Disable systick timer
@@ -59,3 +84,4 @@ void init_systick()
   NVIC_ST_CTRL_R |= NVIC_ST_CTRL_ENABLE;
 }
 
+/****************************** End Of Module *******************************/
