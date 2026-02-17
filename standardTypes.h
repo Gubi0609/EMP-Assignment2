@@ -17,4 +17,11 @@ typedef float FP32; /* Single precision floating point */
 typedef double FP64; /* Double precision floating point */
 
 
+#define TIM_100_MSEC   20
+#define TIM_200_MSEC   40
+#define TIM_500_MSEC  100
+#define TIM_1_SEC     200
+#define TIM_2_SEC     400
+
+
 #endif /* STANDARD_TYPES_H */
