@@ -21,10 +21,14 @@
 #define YELLOW 0x0A
 #define GREEN 0x08
 
+
 // Light states'
-#define NORMAL_STATE 0
-#define NORWEGIAN_STATE 1
-#define EMERGENCY_STATE 2
+#define RED_STATE 0
+#define RED_YELLOW_STATE 1
+#define YELLOW_STATE 2
+#define GREEN_STATE 3
+#define NORWEGIAN_STATE 4
+#define EMERGENCY_STATE 5
 
 /*****************************   Constants   *******************************/
 

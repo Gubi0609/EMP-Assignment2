@@ -3,6 +3,7 @@
 #include "button.h"
 #include "light.h"
 #include "systick.h"
+#include "systick.c"
 
 /**
  * main.c
