@@ -39,8 +39,7 @@ int main(void)
 	// Application part of the super loop.
 	// -----------------------------------
 	event = select_button();
-	counter_value = counter( event );
-	counter_leds( counter_value );
+	HandleState(GetState(event));
   }
 	return 0;
 }
