@@ -14,7 +14,11 @@
 #include "tm4c123gh6pm.h"
 #include "standardTypes.h"
 #include "button.h"
+
 /*****************************    Defines    *******************************/
+
+#define TIM_2_SEC 400
+#define TIM_100_MSEC 20
 
 /*****************************   Constants   *******************************/
 
