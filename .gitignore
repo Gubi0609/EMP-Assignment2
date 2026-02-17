@@ -5,3 +5,6 @@ temp/
 Debug/
 .settings/
 targetConfigs/
+.metadata/
+.jxbrowser.userdata/
+.launches/
