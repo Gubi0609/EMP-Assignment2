@@ -16,22 +16,28 @@ void ClearColor(){
 void SetLightState(INT8U state){
     switch(state){
         case RED_STATE:
+            //transtion after some time
             SetColor(RED);
             break;
         case RED_YELLOW_STATE:
+            //-||-
             SetColor(RED_YELLOW);
             break;
         case YELLOW_STATE:
+        //-||-
             SetColor(YELLOW);
             break;
         case GREEN_STATE:
+        //-||-
             SetColor(GREEN);
             break;
         case NORWEGIAN_STATE:
-            SetColor(RED_YELLOW);
+            //start blinking 
+            SetColor(YELLOW);
             break;
         case EMERGENCY_STATE:
-            SetColor(GREEN);
+            //set solid color
+            SetColor(RED);
             break;
     }
 }
