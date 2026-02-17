@@ -12,7 +12,7 @@ void ClearColor(){
     GPIO_PORTF_DATA_R &= 0xF1; // 1111 0001
 }
 
-void SetLightState(INT8U state){
+void HandleState(INT8U state){
     switch(state){
         case RED_STATE:
             //transtion after some time
@@ -39,4 +39,9 @@ void SetLightState(INT8U state){
             SetColor(RED);
             break;
     }
+}
+
+INT8U GetState(INT8U button_event){
+    //read state from button and figure out what to do
+    return 0;
 }
