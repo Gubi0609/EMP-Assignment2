@@ -1,3 +1,8 @@
+#ifndef STANDARD_TYPES_H
+    #define STANDARD_TYPES_H
+
+
+
 
 typedef unsigned char BOOLEAN;
 typedef unsigned char INT8U; /* Unsigned 8 bit quantity */
@@ -10,3 +15,6 @@ typedef unsigned long long INT64U; /* Unsigned 64 bit quantity */
 typedef signed long long INT64S; /* Signed 64 bit quantity */
 typedef float FP32; /* Single precision floating point */
 typedef double FP64; /* Double precision floating point */
+
+
+#endif /* STANDARD_TYPES_H */
