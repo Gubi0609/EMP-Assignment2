@@ -21,6 +21,12 @@
 #define LONG_PRESS 3
 #define FIRST_RELEASE 4
 
+#define BS_IDLE           0
+#define BS_FIRST_PUSH     1
+#define BS_FIRST_RELEASE  2
+#define BS_SECOND_PUSH    3
+#define BS_LONG_PUSH      4
+
 /*****************************   Constants   *******************************/
 
 /*****************************   Functions   *******************************/
