@@ -23,21 +23,11 @@ int main(void)
   // Loop forever.
   while(1)
   {
-	// System part of the super loop.
-    // ------------------------------
 	while( !ticks );
 
 	// The following will be executed every 5ms
     ticks--;
 
-	if( ! --alive_timer )
-	{
-	  alive_timer        = TIM_500_MSEC;
-	  //GPIO_PORTD_DATA_R ^= 0x40; //0100 0000
-	}
-
-	// Application part of the super loop.
-	// -----------------------------------
 	event = select_button();
 	HandleState(GetState(event));
   }

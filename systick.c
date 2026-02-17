@@ -47,7 +47,7 @@ void init_systick()
 
   // Set systick priority to 0x10, first clear then set.
   NVIC_SYS_PRI3_R &= ~(NVIC_SYS_PRI3_TICK_M);
-  NVIC_SYS_PRI3_R |= (NVIC_SYS_PRI3_TICK_M & ((uint32_t)SYSTICK_PRIORITY<<NVIC_SYS_PRI3_TICK_S));
+  NVIC_SYS_PRI3_R |= (NVIC_SYS_PRI3_TICK_M & (SYSTICK_PRIORITY<<NVIC_SYS_PRI3_TICK_S));
 
   // Select systick clock source, Use core clock
   NVIC_ST_CTRL_R |= NVIC_ST_CTRL_CLK_SRC;
