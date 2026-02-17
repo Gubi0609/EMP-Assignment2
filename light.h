@@ -20,6 +20,7 @@
 #define RED_YELLOW 0x06
 #define YELLOW 0x0A
 #define GREEN 0x08
+#define OFF 0x00
 
 
 // Light states'
