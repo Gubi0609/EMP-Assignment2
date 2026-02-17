@@ -4,7 +4,7 @@
 *
 * MODULENAME.: button.c
 *
-* PROJECT....: EMP
+* PROJECT....: Traffic Light
 *
 * DESCRIPTION: See module specification file (.h-file).
 *****************************************************************************/
@@ -42,58 +42,58 @@ INT8U select_button(void)
     case IDLE:
 	    if( button_pushed() )		            // if button pushed
 	    {
-	        button_state = BS_FIRST_PUSH;
+	        button_state = FIRST_PRESS;
 		    button_timer = TIM_2_SEC;		    // start timer = 2 sec;
 	    }
 	    break;
-    case BS_FIRST_PUSH:
+    case FIRST_PRESS:
 	    if( ! --button_timer )			        // if timeout
 	    {
-	        button_state = BS_LONG_PUSH;
-		    button_event = BE_LONG_PUSH;
+	        button_state = LONG_PRESS;
+		    button_event = LONG_PRESS;
 	    }
 	    else
 	    {
 	        if( !button_pushed() )	                // if button released
 			{
-		        button_state = BS_FIRST_RELEASE;
+		        button_state = FIRST_RELEASE;
 			    button_timer = TIM_100_MSEC;	    // start timer = 100 milli sec;
 		    }
 	    }
 	    break;
-    case BS_FIRST_RELEASE:
+    case FIRST_RELEASE:
 	    if( ! --button_timer )			        // if timeout
 	    {
-	        button_state = BS_IDLE;
-		    button_event = BE_SINGLE_PUSH;
+	        button_state = IDLE;
+		    button_event = SINGLE_PRESS;
 	    }
 	    else
 	    {
 	        if( button_pushed() )		            // if button pressed
 			{
-		         button_state = BS_SECOND_PUSH;
+		         button_state = SECOND_PRESS;
 			     button_timer = TIM_2_SEC;		    // start timer = 2 sec;
 	        }
 	    }
 	    break;
-    case BS_SECOND_PUSH:
+    case SECOND_PRESS:
 	    if( ! --button_timer )			        // if timeout
 	    {
-	        button_state = BS_LONG_PUSH;
-		    button_event = BE_LONG_PUSH;
+	        button_state = LONG_PRESS;
+		    button_event = LONG_PRESS;
 	    }
 	    else
 	    {
 	        if( !button_pushed() )				    // if button released
 			{
-		          button_state = BS_IDLE;
-			      button_event = BE_DOUBBLE_PUSH;
+		          button_state = IDLE;
+			      button_event = DOUBLE_PRESS;
 	        }
 	    }
 	    break;
-    case BS_LONG_PUSH:
+    case LONG_PRESS:
         if( !button_pushed() )					// if button released
-            button_state = BS_IDLE;
+            button_state = IDLE;
 	    break;
     default:
         break;

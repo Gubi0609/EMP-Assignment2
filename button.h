@@ -20,6 +20,8 @@
 #define SECOND_PRESS 2
 #define LONG_PRESS 3
 #define FIRST_RELEASE 4
+#define SINGLE_PRESS 5
+#define DOUBLE_PRESS 6
 
 #define BS_IDLE           0
 #define BS_FIRST_PUSH     1
